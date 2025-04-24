@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soundtrack</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <iframe
+    id="spline"
+    src="https://my.spline.design/soundtrack-LjPa9qHRtPVNY8WJvUf3u5gt/"
+    allow="autoplay"
+  ></iframe>
+
+  <script>
+    const sounds = {
+      btn1: new Audio('sounds/forest.mp3'),
+      btn2: new Audio('sounds/city.mp3'),
+      btn3: new Audio('sounds/space.mp3'),
+    };
+
+    window.addEventListener("message", (event) => {
+      const { data } = event;
+      if (data?.name === "mouseDown") {
+        const target = data?.target?.name;
+        if (target && sounds[target]) {
+          sounds[target].play();
+        }
+      }
+    });
+  </script>
+</body>
+</html>
