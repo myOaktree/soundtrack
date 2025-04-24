@@ -32,15 +32,15 @@
       btn3: new Audio('sounds/space.mp3'),
     };
 
-    window.addEventListener("message", (event) => {
-      const { data } = event;
-      if (data?.name === "mouseDown") {
-        const target = data?.target?.name;
-        if (target && sounds[target]) {
-          sounds[target].play();
-        }
-      }
-    });
+    window.addEventListener("click", (event) => {
+  const { data } = event;
+  if (data?.name === "mouseDown") {
+    const target = data?.target?.name;
+    if (target && sounds[target]) {
+      sounds[target].play();
+    }
+  }
+});
   </script>
 </body>
 </html>
